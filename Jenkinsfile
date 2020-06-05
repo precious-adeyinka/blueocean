@@ -22,7 +22,7 @@ pipeline {
          }         
          stage('Upload to AWS') {
               steps {
-                  withAWS(region:'us-east-2',credentials:'1e734213-63e8-4a5d-9dcb-3469fefacad8') {
+                  withAWS(region:'us-east-2',credentials:'cb760bce-5da0-42f2-9bb4-43a3387ab483') {
                   sh 'echo "Uploading content with AWS creds"'
                     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'jenkins-blueocean-pipeline')
                   }
