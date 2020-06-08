@@ -15,11 +15,11 @@ pipeline {
                 sh 'tidy -q -e *.html'
               }
          }
-         stage('Security Scan') {
-              steps { 
-                aquaMicroscanner imageName: 'alpine:latest', notCompilesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
-              }
-         }         
+         // stage('Security Scan') {
+         //      steps { 
+         //        aquaMicroscanner imageName: 'alpine:latest', notCompilesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+         //      }
+         // }         
          stage('Upload to AWS') {
               steps {
                   withAWS(region:'us-east-2',credentials:'cb760bce-5da0-42f2-9bb4-43a3387ab483') {
