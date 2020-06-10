@@ -4,9 +4,13 @@ pipeline {
 
   stages {
 
-    stage('Lint HTML') {
+    stage('Build') {
       steps {
-        sh 'tidy -q -e *.html'
+        sh 'echo "Hello World"'
+        sh '''
+         echo "Multiline shell steps works too"
+         ls -lah
+        '''
       }
     }
   }
