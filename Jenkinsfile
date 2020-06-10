@@ -11,7 +11,7 @@ pipeline {
              }
          }
          stage('Lint HTML') {
-              steps {
+              steps {l
                 sh 'tidy -q -e *.html'
               }
          }
@@ -22,7 +22,7 @@ pipeline {
          // }         
          stage('Upload to AWS') {
               steps {
-                  withAWS(region:'us-west-2',credentials:'cb760bce-5da0-42f2-9bb4-43a3387ab483') {
+                  withAWS(region:'us-east-2',credentials:'cb760bce-5da0-42f2-9bb4-43a3387ab483') {
                   sh 'echo "Uploading content with AWS creds"'
                     s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'jenkins-blueocean-pipeline')
                   }
